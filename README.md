@@ -424,7 +424,7 @@ plt.show()
 
 
     
-![png](output_24_0.png)
+![png](output/output_24_0.png)
     
 
 
@@ -549,7 +549,7 @@ plt.show()
 
 
     
-![png](output_29_0.png)
+![png](output/output_29_0.png)
     
 
 
@@ -574,7 +574,7 @@ plt.show()
 
 
     
-![png](output_32_0.png)
+![png](output/output_32_0.png)
     
 
 
@@ -708,7 +708,7 @@ msno.matrix(rt_df[num_col], color=(0.4,0.2,0.5))
 
 
     
-![png](output_43_1.png)
+![png](output/output_43_1.png)
     
 
 
@@ -763,7 +763,7 @@ plt.show()
 
 
     
-![png](output_45_0.png)
+![png](output/output_45_0.png)
     
 
 
@@ -915,7 +915,7 @@ msno.matrix(rt_df[txt_col], color=(0.4,0.2,0.5))
 
 
     
-![png](output_53_1.png)
+![png](output/output_53_1.png)
     
 
 
@@ -1018,7 +1018,7 @@ msno.matrix(rt_df, color=(0.4,0.2,0.5))
 
 
     
-![png](output_63_1.png)
+![png](output/output_63_1.png)
     
 
 
@@ -1855,7 +1855,7 @@ model.summary()
 
 
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
-┃<span style="font-weight: bold"> Layer (type)                         </span>┃<span style="font-weight: bold"> Output Shape                </span>┃<span style="font-weight: bold">         Param # </span>┃
+┃<span style="font-weight: bold"> Layer (type)                         </span>┃<span style="font-weight: bold"> output/output Shape                </span>┃<span style="font-weight: bold">         Param # </span>┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
 │ dense (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                        │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">64</span>)                  │           <span style="color: #00af00; text-decoration-color: #00af00">3,136</span> │
 ├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
@@ -2010,7 +2010,7 @@ X_train_text, X_test_text, X_train_other, X_test_other, y_train, y_test = train_
 ```python
 # textual input branch
 text_input = Input(shape=(88,), name="text_input")
-embedding = Embedding(input_dim=10000, output_dim=128, input_length=88)(text_input)
+embedding = Embedding(input_dim=10000, output/output_dim=128, input_length=88)(text_input)
 lstm_out = LSTM(64)(embedding)
 
 # numerical input branch
@@ -2020,10 +2020,10 @@ dense_num = Dense(64, activation='relu')(num_input)
 # combining text and numerical features
 merged = Concatenate()([lstm_out, dense_num])
 dense = Dense(128, activation='relu')(merged)
-output = Dense(1, activation='linear')(dense)
+output/output = Dense(1, activation='linear')(dense)
 
 # defining the model
-model = Model(inputs=[text_input, num_input], outputs=output)
+model = Model(inputs=[text_input, num_input], output/outputs=output/output)
 model.compile(optimizer='adam', loss='mean_squared_error', metrics=['mae'])
 
 model.summary()
@@ -2037,7 +2037,7 @@ model.summary()
 
 
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃<span style="font-weight: bold"> Layer (type)                  </span>┃<span style="font-weight: bold"> Output Shape              </span>┃<span style="font-weight: bold">         Param # </span>┃<span style="font-weight: bold"> Connected to               </span>┃
+┃<span style="font-weight: bold"> Layer (type)                  </span>┃<span style="font-weight: bold"> output/output Shape              </span>┃<span style="font-weight: bold">         Param # </span>┃<span style="font-weight: bold"> Connected to               </span>┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
 │ text_input (<span style="color: #0087ff; text-decoration-color: #0087ff">InputLayer</span>)       │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">88</span>)                │               <span style="color: #00af00; text-decoration-color: #00af00">0</span> │ -                          │
 ├───────────────────────────────┼───────────────────────────┼─────────────────┼────────────────────────────┤
@@ -2261,7 +2261,7 @@ plt.show()
 
 
     
-![png](output_137_0.png)
+![png](output/output_137_0.png)
     
 
 
@@ -2340,7 +2340,7 @@ plt.show()
 
 
     
-![png](output_141_0.png)
+![png](output/output_141_0.png)
     
 
 
